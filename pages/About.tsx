@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
 
 const About: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-gray-100 min-h-screen flex flex-col">
@@ -14,7 +15,7 @@ const About: React.FC = () => {
           <h2 className="text-charcoal dark:text-white text-lg font-black leading-tight tracking-tight uppercase">Mystical</h2>
         </div>
         <div className="flex items-center gap-4">
-          <button className="text-charcoal dark:text-white material-symbols-outlined" data-icon="search">search</button>
+          <button onClick={() => navigate('/services')} className="text-charcoal dark:text-white material-symbols-outlined" data-icon="search">search</button>
           <button onClick={() => setIsMenuOpen(true)} className="text-charcoal dark:text-white material-symbols-outlined" data-icon="menu">menu</button>
         </div>
       </header>

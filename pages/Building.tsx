@@ -18,7 +18,7 @@ const Building: React.FC = () => {
             <h2 className="text-[#181611] dark:text-white text-lg font-bold leading-tight tracking-tight">Mystical Construction</h2>
           </div>
           <div className="flex items-center gap-2">
-            <button className="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#181611] dark:text-white">
+            <button onClick={() => navigate('/services')} className="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#181611] dark:text-white">
               <span className="material-symbols-outlined">search</span>
             </button>
             <button onClick={() => setIsMenuOpen(true)} className="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#181611] dark:text-white">

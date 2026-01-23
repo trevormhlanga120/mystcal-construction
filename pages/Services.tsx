@@ -2,9 +2,37 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
 
+interface ServiceItem {
+  path: string;
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+const servicesList: ServiceItem[] = [
+  { path: "/building", icon: "foundation", title: "Building", desc: "New construction" },
+  { path: "/solar", icon: "solar_power", title: "Solar Installation", desc: "Energy solutions" },
+  { path: "/plastering", icon: "format_paint", title: "Plastering", desc: "Wall finishing" },
+  { path: "/roofing", icon: "roofing", title: "Roofing", desc: "Repairs & installation" },
+  { path: "/plumbing", icon: "plumbing", title: "Plumbing", desc: "Full maintenance" },
+  { path: "/electrical", icon: "bolt", title: "Electrical", desc: "Wiring & CoC" },
+  { path: "/drywall", icon: "grid_view", title: "Drywall", desc: "Partitioning" },
+  { path: "/ceiling", icon: "vertical_align_top", title: "Ceiling", desc: "Design & Install" },
+  { path: "/flooring", icon: "layers", title: "Flooring", desc: "Tiling & Wood" },
+  { path: "/painting", icon: "imagesearch_roller", title: "Painting", desc: "Interior & Exterior" },
+  { path: "/carpentry", icon: "carpenter", title: "Carpentry", desc: "Custom woodwork" },
+  { path: "/building", icon: "home_repair_service", title: "Renovation", desc: "Turnkey remodeling" },
+];
+
 const Services: React.FC = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredServices = servicesList.filter(service => 
+    service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    service.desc.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="bg-concrete-grey dark:bg-background-dark text-[#181610] dark:text-white flex flex-col min-h-screen font-sans">
@@ -44,120 +72,35 @@ const Services: React.FC = () => {
                 <div className="text-[#8d7d5e] flex items-center justify-center pl-4">
                   <span className="material-symbols-outlined text-xl">search</span>
                 </div>
-                <input className="form-input flex w-full border-none bg-transparent h-full placeholder:text-[#8d7d5e] px-4 pl-2 text-sm focus:ring-0" placeholder="Find a service..."/>
+                <input 
+                  className="form-input flex w-full border-none bg-transparent h-full placeholder:text-[#8d7d5e] px-4 pl-2 text-sm focus:ring-0 outline-none dark:text-white" 
+                  placeholder="Find a service..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
             </label>
           </form>
         </div>
         <div className="grid grid-cols-2 gap-3 p-4 animate-slide-up delay-300">
-          <Link to="/building" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">foundation</span>
+          {filteredServices.length > 0 ? (
+            filteredServices.map((service, index) => (
+              <Link key={index} to={service.path} className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
+                <div className="text-[#F4A300]">
+                  <span className="material-symbols-outlined text-3xl">{service.icon}</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">{service.title}</h3>
+                  <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">{service.desc}</p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div className="col-span-2 flex flex-col items-center justify-center py-12 text-[#8d7d5e] dark:text-[#b5b0a5]">
+              <span className="material-symbols-outlined text-4xl mb-2 opacity-50">search_off</span>
+              <p className="text-sm">No services found matching "{searchTerm}"</p>
             </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Building</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">New construction</p>
-            </div>
-          </Link>
-          <Link to="/solar" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">solar_power</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Solar Installation</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Energy solutions</p>
-            </div>
-          </Link>
-          <Link to="/plastering" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">format_paint</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Plastering</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Wall finishing</p>
-            </div>
-          </Link>
-          <Link to="/roofing" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">roofing</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Roofing</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Repairs & installation</p>
-            </div>
-          </Link>
-          <Link to="/plumbing" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">plumbing</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Plumbing</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Full maintenance</p>
-            </div>
-          </Link>
-          <Link to="/electrical" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">bolt</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Electrical</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Wiring & CoC</p>
-            </div>
-          </Link>
-          <Link to="/drywall" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">grid_view</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Drywall</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Partitioning</p>
-            </div>
-          </Link>
-          <Link to="/ceiling" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">vertical_align_top</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Ceiling</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Design & Install</p>
-            </div>
-          </Link>
-          <Link to="/flooring" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">layers</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Flooring</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Tiling & Wood</p>
-            </div>
-          </Link>
-          <Link to="/painting" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">imagesearch_roller</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Painting</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Interior & Exterior</p>
-            </div>
-          </Link>
-          <Link to="/carpentry" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">carpenter</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Carpentry</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Custom woodwork</p>
-            </div>
-          </Link>
-          <Link to="/building" className="flex flex-col gap-3 rounded-xl bg-white dark:bg-[#1a2533] p-5 shadow-sm active:bg-gray-50 transition-colors border border-gray-200/50 dark:border-white/5 cursor-pointer">
-            <div className="text-[#F4A300]">
-              <span className="material-symbols-outlined text-3xl">home_repair_service</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <h3 className="text-[#181610] dark:text-white text-sm font-bold leading-tight font-heading">Renovation</h3>
-              <p className="text-[#8d7d5e] dark:text-[#b5b0a5] text-[10px] font-normal">Turnkey remodeling</p>
-            </div>
-          </Link>
+          )}
         </div>
         <div className="p-4 mb-24 animate-slide-up delay-500">
           <Link to="/contact" className="bg-brand-dark rounded-xl p-6 flex items-center justify-between border border-white/5 shadow-xl cursor-pointer hover:bg-brand-dark/90 transition-colors">

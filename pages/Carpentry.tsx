@@ -18,7 +18,7 @@ const Carpentry: React.FC = () => {
           <h2 className="text-gray-900 dark:text-white text-lg font-extrabold leading-tight tracking-tight">Mystical Construction</h2>
         </div>
         <div className="flex w-10 items-center justify-end">
-          <button className="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent text-gray-900 dark:text-white transition-colors hover:bg-[#eebd2b]/20">
+          <button onClick={() => navigate('/services')} className="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent text-gray-900 dark:text-white transition-colors hover:bg-[#eebd2b]/20">
             <span className="material-symbols-outlined">search</span>
           </button>
         </div>

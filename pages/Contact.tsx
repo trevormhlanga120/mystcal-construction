@@ -58,17 +58,27 @@ const Contact: React.FC = () => {
               <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-1/2 top-1/2 left-4 z-10 origin-[0] peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-1/2 pointer-events-none transition-all peer-focus:text-[#f5a300] peer-focus:bg-white dark:peer-focus:bg-[#1a1f2e] peer-focus:left-3 px-1" htmlFor="phone">Phone Number</label>
             </div>
             <div className="floating-label-group relative">
-              <select className="block w-full px-4 py-4 text-base text-gray-900 bg-white dark:bg-white/5 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-[#f5a300] focus:border-[#f5a300] peer dark:text-white outline-none appearance-none" id="service" name="service" defaultValue="" required>
-                <option disabled value=""></option>
-                <option value="renovation">Home Renovation</option>
-                <option value="newbuild">New Construction</option>
-                <option value="plumbing">Plumbing Services</option>
-                <option value="roofing">Roofing & Waterproofing</option>
-              </select>
-              <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-1/2 top-1/2 left-4 z-10 origin-[0] peer-focus:px-2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-1/2 pointer-events-none transition-all peer-focus:text-[#f5a300] peer-focus:bg-white dark:peer-focus:bg-[#1a1f2e] peer-focus:left-3 px-1" htmlFor="service">Service Type</label>
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                <span className="material-symbols-outlined">expand_more</span>
-              </div>
+              <input 
+                className="block w-full px-4 py-4 text-base text-gray-900 bg-white dark:bg-white/5 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-[#f5a300] focus:border-[#f5a300] peer dark:text-white outline-none" 
+                id="service" 
+                name="service" 
+                placeholder=" " 
+                list="service-options"
+                required 
+              />
+              <datalist id="service-options">
+                <option value="Building & Renovations" />
+                <option value="Solar Installation" />
+                <option value="Roofing & Waterproofing" />
+                <option value="Plumbing Services" />
+                <option value="Electrical Services" />
+                <option value="Drywall & Partitioning" />
+                <option value="Ceiling Services" />
+                <option value="Flooring & Tiling" />
+                <option value="Painting Services" />
+                <option value="Carpentry & Joinery" />
+              </datalist>
+              <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-1/2 top-1/2 left-4 z-10 origin-[0] peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-1/2 pointer-events-none transition-all peer-focus:text-[#f5a300] peer-focus:bg-white dark:peer-focus:bg-[#1a1f2e] peer-focus:left-3 px-1" htmlFor="service">Service Type</label>
             </div>
             <div className="floating-label-group relative">
               <textarea className="block w-full px-4 py-4 text-base text-gray-900 bg-white dark:bg-white/5 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-[#f5a300] focus:border-[#f5a300] peer dark:text-white outline-none" id="details" name="details" placeholder=" " rows={4} required></textarea>
