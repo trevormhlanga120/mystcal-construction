@@ -4,6 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const Plumbing: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction - Plumbing',
+          text: 'Expert plumbing services in South Africa',
+          url: window.location.href,
+        });
+      } catch (err) { console.debug('Share cancelled'); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) { console.error('Failed to copy: ', err); }
+    }
+  };
+
   return (
     <div className="bg-[#f5f7f8] dark:bg-[#101922] text-[#111418] dark:text-white antialiased font-display min-h-screen">
       <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-24">
@@ -13,7 +30,7 @@ const Plumbing: React.FC = () => {
           </div>
           <h2 className="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Plumbing Services</h2>
           <div className="flex w-12 items-center justify-end">
-            <button className="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-[#111418] dark:text-white p-0">
+            <button onClick={handleShare} className="flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-[#111418] dark:text-white p-0">
               <span className="material-symbols-outlined">share</span>
             </button>
           </div>

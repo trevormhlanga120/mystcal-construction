@@ -4,6 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const Electrical: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction - Electrical',
+          text: 'Certified electrical services and COC',
+          url: window.location.href,
+        });
+      } catch (err) { console.debug('Share cancelled'); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) { console.error('Failed to copy: ', err); }
+    }
+  };
+
   return (
     <div className="bg-[#f8f7f5] dark:bg-[#221c10] font-display">
       <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#221c10]/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
@@ -12,7 +29,7 @@ const Electrical: React.FC = () => {
         </div>
         <h2 className="text-[#181611] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Electrical Services</h2>
         <div className="flex w-12 items-center justify-end">
-          <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#181611] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+          <button onClick={handleShare} className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#181611] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
             <span className="material-symbols-outlined">share</span>
           </button>
         </div>

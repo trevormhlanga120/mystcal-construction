@@ -4,6 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const Drywall: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction - Drywall',
+          text: 'Professional partition and drywall services',
+          url: window.location.href,
+        });
+      } catch (err) { console.debug('Share cancelled'); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) { console.error('Failed to copy: ', err); }
+    }
+  };
+
   return (
     <div className="bg-[#f6f7f8] dark:bg-[#101922] font-display text-[#111418] dark:text-white min-h-screen">
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24">
@@ -13,7 +30,7 @@ const Drywall: React.FC = () => {
           </div>
           <h2 className="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Drywall & Partitioning</h2>
           <div className="flex w-12 items-center justify-end">
-            <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+            <button onClick={handleShare} className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
               <span className="material-symbols-outlined">share</span>
             </button>
           </div>

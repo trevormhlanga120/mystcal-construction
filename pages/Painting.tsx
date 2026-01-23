@@ -4,6 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const Painting: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction - Painting',
+          text: 'Professional painting services in South Africa',
+          url: window.location.href,
+        });
+      } catch (err) { console.debug('Share cancelled'); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) { console.error('Failed to copy: ', err); }
+    }
+  };
+
   return (
     <div className="bg-[#f8f7f5] dark:bg-[#221c10] font-display text-[#181611] dark:text-white antialiased min-h-screen">
       <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#221c10]/90 backdrop-blur-md p-4 justify-between border-b border-gray-100 dark:border-white/10">
@@ -12,7 +29,7 @@ const Painting: React.FC = () => {
         </div>
         <h2 className="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Painting Services</h2>
         <div className="flex w-10 items-center justify-end">
-          <button className="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#181611] dark:text-white">
+          <button onClick={handleShare} className="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 bg-transparent text-[#181611] dark:text-white">
             <span className="material-symbols-outlined">share</span>
           </button>
         </div>

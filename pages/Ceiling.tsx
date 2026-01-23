@@ -4,6 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const Ceiling: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction - Ceilings',
+          text: 'Premium ceiling installation and repairs',
+          url: window.location.href,
+        });
+      } catch (err) { console.debug('Share cancelled'); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) { console.error('Failed to copy: ', err); }
+    }
+  };
+
   return (
     <div className="bg-[#f8f7f5] dark:bg-[#231c0f] min-h-screen text-[#181610] dark:text-white font-display">
       <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#231c0f]/90 backdrop-blur-md p-4 justify-between border-b border-gray-100 dark:border-white/10">
@@ -14,7 +31,7 @@ const Ceiling: React.FC = () => {
           <h2 className="text-lg font-bold leading-tight tracking-tight">Ceiling Services</h2>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center justify-center rounded-full h-10 w-10 bg-transparent text-[#181610] dark:text-white">
+          <button onClick={handleShare} className="flex items-center justify-center rounded-full h-10 w-10 bg-transparent text-[#181610] dark:text-white">
             <span className="material-symbols-outlined">share</span>
           </button>
         </div>

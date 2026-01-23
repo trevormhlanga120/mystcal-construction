@@ -4,6 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const Plastering: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction - Plastering',
+          text: 'Premium plastering services in South Africa',
+          url: window.location.href,
+        });
+      } catch (err) { console.debug('Share cancelled'); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) { console.error('Failed to copy: ', err); }
+    }
+  };
+
   return (
     <div className="bg-[#f8f7f6] dark:bg-[#221c10] font-display min-h-screen">
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
@@ -13,7 +30,7 @@ const Plastering: React.FC = () => {
           </div>
           <h2 className="text-[#181611] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Plastering Services</h2>
           <div className="flex w-12 items-center justify-end">
-            <button className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#181611] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+            <button onClick={handleShare} className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#181611] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
               <div className="text-[#181611] dark:text-white">
                 <span className="material-symbols-outlined">share</span>
               </div>
@@ -80,9 +97,9 @@ const Plastering: React.FC = () => {
         <div className="py-6 animate-slide-up delay-500">
           <h3 className="px-4 text-lg font-bold text-[#181611] dark:text-white mb-4">Recent Projects</h3>
           <div className="flex overflow-x-auto gap-4 px-4 no-scrollbar">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6rj85br4Qv2oZZfTkAmgObA999C_xtTYCE2J-FBvcayPzr4eBw_E4g7yhLm7EhrewaVx8xprU2z8rzvTJfeut54ZnB6pGrxUFOUCNxv-izvq-9A9j-omRRf2R_DV6e00g_ax1jj7YFQ8DLXLNfd0OTgP4z8BlU8cqq9gMXZQ0ug92yPSLbTWhnT20MM6N5Q00f_uBcvaHuXH1uzFe9Axs8TJ54k0tqChh8cEd_z5PGckVdiyVAIPFOoAZ0t-SrJYIX0DBZuCAhw" alt="Close up of decorative plaster cornice detail" className="min-w-[280px] h-48 rounded-xl object-cover shrink-0 shadow-md bg-gray-200" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNZACApGVCXS90L15iv2uafCGJL9E34Gk8cas-ImMSHCfoM6hLIATYg_19FORoYR512hxd8TXioSczPjL7pQKYJvG_j04J7dFscYGwOu2nRcr_VYSo0ty2NvARljLXOVRjL6q4JQEm78fTW3-Ol1Muc9NCFI0nXxiQDWSX5y2ppzqb_BeOV9QObbSWNlv463XNfAwXFb0BV_623NmRmoe157YYXmqr-Aaq_7mimbZa4imUcNE3st7ZFPCzynFyonM2bkZeOiQfqg" alt="Venetian plaster finish on a luxury living room wall" className="min-w-[280px] h-48 rounded-xl object-cover shrink-0 shadow-md bg-gray-200" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr43O0ziKfk1jbkUjQJWLLFQOLV0CM3hh4d5kNI7aIIRyxlPe1cXUp6FhCxSO7E0No1bicM48S9dh9cyR9fRRzUPEiE2jdxgr6G05SMl_JTfF4PsF0OFBGcUtIVHv7WLaZXr_HV3L7jz1gC5oe2i_pY3bXPtaTtmYo5P0fYSyISHqqkJZ1-tW1N1_-GCxNZpVoojNmJI-5tCHJJ_R144hQJz5jS5oCnwAJCmsFXXJ6m-4b9k6-J28XdczuYzCKqtRHLhcisPHS1Q" alt="Seamless exterior plaster finish on modern villa" className="min-w-[280px] h-48 rounded-xl object-cover shrink-0 shadow-md bg-gray-200" loading="lazy" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6rj85br4Qv2oZZfTkAmgObA999C_xtTYCE2J-FBvcayPzr4eBw_E4g7yhLm7EhrewaVx8xprU2z8rzvTJfeut54ZnB6pGrxUFOUCNxv-izvq-9A9j-omRRf2R_DV6e00g_ax1jj7YFQ8DLXLNfd0OTgP4z8BlU8cqq9gMXZQ0ug92yPSLbTWhnT20MM6N5Q00f_uBcvaHuXH1uzFe9Axs8TJ54k0tqChh8cEd_z5PGckVdiyVAIPFOoAZ0t-SrJYIX0DBZuCAhw" alt="Close up of decorative plaster cornice detail" className="min-w-[280px] h-48 rounded-xl object-cover shrink-0 shadow-md bg-gray-200" loading="lazy" decoding="async" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNZACApGVCXS90L15iv2uafCGJL9E34Gk8cas-ImMSHCfoM6hLIATYg_19FORoYR512hxd8TXioSczPjL7pQKYJvG_j04J7dFscYGwOu2nRcr_VYSo0ty2NvARljLXOVRjL6q4JQEm78fTW3-Ol1Muc9NCFI0nXxiQDWSX5y2ppzqb_BeOV9QObbSWNlv463XNfAwXFb0BV_623NmRmoe157YYXmqr-Aaq_7mimbZa4imUcNE3st7ZFPCzynFyonM2bkZeOiQfqg" alt="Venetian plaster finish on a luxury living room wall" className="min-w-[280px] h-48 rounded-xl object-cover shrink-0 shadow-md bg-gray-200" loading="lazy" decoding="async" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr43O0ziKfk1jbkUjQJWLLFQOLV0CM3hh4d5kNI7aIIRyxlPe1cXUp6FhCxSO7E0No1bicM48S9dh9cyR9fRRzUPEiE2jdxgr6G05SMl_JTfF4PsF0OFBGcUtIVHv7WLaZXr_HV3L7jz1gC5oe2i_pY3bXPtaTtmYo5P0fYSyISHqqkJZ1-tW1N1_-GCxNZpVoojNmJI-5tCHJJ_R144hQJz5jS5oCnwAJCmsFXXJ6m-4b9k6-J28XdczuYzCKqtRHLhcisPHS1Q" alt="Seamless exterior plaster finish on modern villa" className="min-w-[280px] h-48 rounded-xl object-cover shrink-0 shadow-md bg-gray-200" loading="lazy" decoding="async" />
           </div>
         </div>
         <div className="h-32"></div>

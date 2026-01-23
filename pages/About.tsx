@@ -6,6 +6,27 @@ const About: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction',
+          text: 'Building Excellence in South Africa',
+          url: window.location.href,
+        });
+      } catch (err) {
+        console.debug('Share cancelled');
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
+    }
+  };
+
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-gray-100 min-h-screen flex flex-col">
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
@@ -28,6 +49,7 @@ const About: React.FC = () => {
                 alt="Luxury modern home interior with high-end wood finishes" 
                 className="w-full bg-center bg-no-repeat aspect-[4/3] object-cover @[864px]:aspect-video animate-slide-left" 
                 loading="lazy" 
+                decoding="async"
               />
               <div className="flex flex-col gap-6 p-6 @[864px]:px-12 @[864px]:py-16 bg-white dark:bg-background-dark">
                 <div className="flex flex-col gap-3">
@@ -43,7 +65,7 @@ const About: React.FC = () => {
                   <Link to="/gallery" className="flex flex-1 min-w-[140px] max-w-[240px] cursor-pointer items-center justify-center rounded-lg h-12 px-5 bg-primary text-charcoal text-base font-bold tracking-wide">
                     <span className="truncate">View Projects</span>
                   </Link>
-                  <button className="flex size-12 items-center justify-center rounded-lg border-2 border-primary text-primary">
+                  <button onClick={() => navigate('/services')} className="flex size-12 items-center justify-center rounded-lg border-2 border-primary text-primary">
                     <span className="material-symbols-outlined">play_arrow</span>
                   </button>
                 </div>
@@ -107,15 +129,15 @@ const About: React.FC = () => {
                 Leading the renovation industry in South Africa with integrity and innovation. Level 1 B-BBEE Contributor.
               </p>
               <div className="flex gap-4 mb-8 animate-slide-up delay-200">
-                <button className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center" aria-label="Share">
+                <button onClick={handleShare} className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="Share">
                   <span className="material-symbols-outlined text-lg">share</span>
                 </button>
-                <button className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center" aria-label="Mail">
+                <a href="mailto:info@mysticalbuild.co.za" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="Mail">
                   <span className="material-symbols-outlined text-lg">mail</span>
-                </button>
-                <button className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center" aria-label="Call">
+                </a>
+                <a href="tel:0618607883" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="Call">
                   <span className="material-symbols-outlined text-lg">call</span>
-                </button>
+                </a>
               </div>
             </div>
             <div className="border-t border-gray-800 pt-8 flex flex-col gap-4 text-xs text-gray-500 uppercase tracking-widest animate-slide-up delay-300">

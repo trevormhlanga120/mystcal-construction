@@ -169,7 +169,7 @@ const Contact: React.FC = () => {
       </div>
       <div className="px-4 pb-12 animate-slide-up delay-500">
         <div className="w-full h-48 rounded-xl overflow-hidden relative shadow-md">
-          <img alt="Map serving area" className="w-full h-full object-cover grayscale opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1tsEA6b2ZF3WvQP5jRkBZ-Ad5k_8ayDqZtVhSdJskowmG1thYLX1c7NDoTk4OZTdMlVg77cn55hAl834ECnOJkK5gHeUFd6lbGQZA6uTHgk3s9Y0Vt2bGEDoWLrOC2VMcVNGplDKESEjggTPx5fM2ebxZ1Z069Ed8zXTBABN2D4-HbPIbgPXUM-AaUwu7Z1iHy1UN8BJ3qkLPzBrMbHAJVx07OK1CDlHvTgKukR8gQ_5z0AVFFV0zhRp0nkpZ-FrR5yJcCch05w" loading="lazy" />
+          <img alt="Map serving area" className="w-full h-full object-cover grayscale opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1tsEA6b2ZF3WvQP5jRkBZ-Ad5k_8ayDqZtVhSdJskowmG1thYLX1c7NDoTk4OZTdMlVg77cn55hAl834ECnOJkK5gHeUFd6lbGQZA6uTHgk3s9Y0Vt2bGEDoWLrOC2VMcVNGplDKESEjggTPx5fM2ebxZ1Z069Ed8zXTBABN2D4-HbPIbgPXUM-AaUwu7Z1iHy1UN8BJ3qkLPzBrMbHAJVx07OK1CDlHvTgKukR8gQ_5z0AVFFV0zhRp0nkpZ-FrR5yJcCch05w" loading="lazy" decoding="async" />
           <div className="absolute inset-0 bg-[#f5a300]/10 flex items-center justify-center">
             <div className="bg-white dark:bg-[#121826] p-3 rounded-lg shadow-xl flex items-center gap-2">
               <span className="material-symbols-outlined text-[#f5a300]">location_on</span>

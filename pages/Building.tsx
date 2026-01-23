@@ -44,7 +44,7 @@ const Building: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 gap-4 p-4 animate-slide-up delay-300">
             <div className="flex flex-col gap-3 pb-3 bg-white dark:bg-[#2d261a] p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0KD8Ouhxw_BXsYox75QGE49j3YkMnZG5FSAn_r3XghQN7wVhd7EHgIWGE-fInL2zijSn8bLaDviB-Z50emJ2w9T_cg77hu6xQKcXS0Ve9lVuvxTKy7Pv4yJ-lEEbrwTmFwle8NYAtjcb8H2ckKevx8ajXbAYG-3oy_DORhTQMNtVcrBpAETj2xdRVR6dla7aDnu_yVX1uOjsx42EX2ypIzk-eOIt2gHlpFiarG-4SwG7Qfall5RcLpuZMXHtyYu-HW3oxtHxAbQ" alt="Close up of steel reinforcements for concrete foundation" className="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover rounded-lg" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0KD8Ouhxw_BXsYox75QGE49j3YkMnZG5FSAn_r3XghQN7wVhd7EHgIWGE-fInL2zijSn8bLaDviB-Z50emJ2w9T_cg77hu6xQKcXS0Ve9lVuvxTKy7Pv4yJ-lEEbrwTmFwle8NYAtjcb8H2ckKevx8ajXbAYG-3oy_DORhTQMNtVcrBpAETj2xdRVR6dla7aDnu_yVX1uOjsx42EX2ypIzk-eOIt2gHlpFiarG-4SwG7Qfall5RcLpuZMXHtyYu-HW3oxtHxAbQ" alt="Close up of steel reinforcements for concrete foundation" className="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover rounded-lg" loading="lazy" decoding="async" />
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-[#181611] dark:text-white text-lg font-bold leading-normal">Foundation Work</p>
@@ -56,7 +56,7 @@ const Building: React.FC = () => {
               </div>
             </div>
             <div className="flex flex-col gap-3 pb-3 bg-white dark:bg-[#2d261a] p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9TPgq8LFJFPjOiOQctypuuRkws2yedSqPvJHhX44l7EhtptmMxxJCfYzm5AUfDrTB-R1C5nbSj2fLiqNTiAVJGSqDGsrYqVflZNsUClarngwIivcoXW5DMcNTGeDPy6irX0E-mZf9ap-uxI8Wh1JkGsmXI_KxQIxO5J700hIM_MV3LAJ-btSePWNWvktWeUtJDoZwSPpE2RdiHe1ff39I2ufw6p7kZ6uGK2hn4LcPOja_o3mzXHaRmh9xxqDx7ICN-io4gPn5kQ" alt="Modern house extension with large glass windows" className="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover rounded-lg" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9TPgq8LFJFPjOiOQctypuuRkws2yedSqPvJHhX44l7EhtptmMxxJCfYzm5AUfDrTB-R1C5nbSj2fLiqNTiAVJGSqDGsrYqVflZNsUClarngwIivcoXW5DMcNTGeDPy6irX0E-mZf9ap-uxI8Wh1JkGsmXI_KxQIxO5J700hIM_MV3LAJ-btSePWNWvktWeUtJDoZwSPpE2RdiHe1ff39I2ufw6p7kZ6uGK2hn4LcPOja_o3mzXHaRmh9xxqDx7ICN-io4gPn5kQ" alt="Modern house extension with large glass windows" className="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover rounded-lg" loading="lazy" decoding="async" />
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-[#181611] dark:text-white text-lg font-bold leading-normal">Extensions</p>
@@ -68,7 +68,7 @@ const Building: React.FC = () => {
               </div>
             </div>
             <div className="flex flex-col gap-3 pb-3 bg-white dark:bg-[#2d261a] p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx5XQXPeCp8zNC3x0q1oQJ2RW6Ec42xnx2XWAB0Av0LkNahlb8kwsqZg8gZpRadZ7nx6JnIEXkskg9MiRrM1ofgZhjGUgwT5RE_QhIE-eUKB-9TmlQDhZ_k3g8m9WRT30XUi6qiE6jtpUjI4nTqCiJvnO562wOHnyjI-hHKqD8ZEWa3-Ea6ZuXNHU9WeIjAaahc60EbrH4VbxQ5ZVPo-DzuTtrP3vqKplJkIzn_BnyZl-OyeoZp6_RDmc1CeDl7w9jK7iuF1GsaQ" alt="Workers removing an internal wall for open plan living" className="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover rounded-lg" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx5XQXPeCp8zNC3x0q1oQJ2RW6Ec42xnx2XWAB0Av0LkNahlb8kwsqZg8gZpRadZ7nx6JnIEXkskg9MiRrM1ofgZhjGUgwT5RE_QhIE-eUKB-9TmlQDhZ_k3g8m9WRT30XUi6qiE6jtpUjI4nTqCiJvnO562wOHnyjI-hHKqD8ZEWa3-Ea6ZuXNHU9WeIjAaahc60EbrH4VbxQ5ZVPo-DzuTtrP3vqKplJkIzn_BnyZl-OyeoZp6_RDmc1CeDl7w9jK7iuF1GsaQ" alt="Workers removing an internal wall for open plan living" className="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover rounded-lg" loading="lazy" decoding="async" />
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-[#181611] dark:text-white text-lg font-bold leading-normal">Structural Changes</p>

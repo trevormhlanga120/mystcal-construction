@@ -131,6 +131,7 @@ const Gallery: React.FC = () => {
                 alt={project.title} 
                 className={`${project.aspect} w-full h-full object-cover`}
                 loading="lazy" 
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent flex flex-col justify-end p-4">
                 <p className="text-primary font-bold text-[10px] tracking-widest uppercase">{project.category}</p>

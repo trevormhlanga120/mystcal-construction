@@ -4,6 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const Flooring: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Mystical Construction - Flooring',
+          text: 'Expert flooring and tiling services',
+          url: window.location.href,
+        });
+      } catch (err) { console.debug('Share cancelled'); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      } catch (err) { console.error('Failed to copy: ', err); }
+    }
+  };
+
   return (
     <div className="bg-[#f6f7f8] dark:bg-[#101922] text-[#111418] dark:text-white font-manrope">
       <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
@@ -13,7 +30,7 @@ const Flooring: React.FC = () => {
           </div>
           <h2 className="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Flooring & Tiling</h2>
           <div className="flex w-12 items-center justify-end">
-            <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white p-0">
+            <button onClick={handleShare} className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111418] dark:text-white p-0">
               <span className="material-symbols-outlined">share</span>
             </button>
           </div>
@@ -41,21 +58,21 @@ const Flooring: React.FC = () => {
           </div>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-4">
             <div className="flex flex-col gap-3 pb-3 bg-white dark:bg-gray-800/50 rounded-xl p-3 shadow-sm border border-gray-100 dark:border-gray-800">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj4-nfPUDR4BP3v_MGLVhtMJc8in_1-5dnUtpYKC6DMpGWx7zTcntMdMQHM_ZfrtzybO0J9a5zxEINMk3x1uU76mXVBFLvidJ9s4CXv8_IGXJeHIpfFUp7GOiDCUXpQNX8cYW6odFqpLybb2PyKedIHkrosWfr7kQcc4GdpXngeL8mGxlZUb_lLX9y0BcOgKrQjIZqnvPJ_83_APUfr0wuvWjn4gTOq4xPaEo7WgN9GrPQrvSt7s5XqJCg9ndHPTQJDtx2UHMGCw" alt="Close up of grey ceramic tiles" className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj4-nfPUDR4BP3v_MGLVhtMJc8in_1-5dnUtpYKC6DMpGWx7zTcntMdMQHM_ZfrtzybO0J9a5zxEINMk3x1uU76mXVBFLvidJ9s4CXv8_IGXJeHIpfFUp7GOiDCUXpQNX8cYW6odFqpLybb2PyKedIHkrosWfr7kQcc4GdpXngeL8mGxlZUb_lLX9y0BcOgKrQjIZqnvPJ_83_APUfr0wuvWjn4gTOq4xPaEo7WgN9GrPQrvSt7s5XqJCg9ndHPTQJDtx2UHMGCw" alt="Close up of grey ceramic tiles" className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg" loading="lazy" decoding="async" />
               <div>
                 <p className="text-[#111418] dark:text-white text-base font-bold leading-tight">Ceramic Tiling</p>
                 <p className="text-[#617589] dark:text-gray-400 text-xs mt-1">Durable & stylish for homes</p>
               </div>
             </div>
             <div className="flex flex-col gap-3 pb-3 bg-white dark:bg-gray-800/50 rounded-xl p-3 shadow-sm border border-gray-100 dark:border-gray-800">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7yv6zEszqzr-2pwdRFQcJHz25nJT4ztZkiLo1qy6jKMUBUTG_AchfF_cRvqCbYju4vxll96SR5eUIju4fT5EPd8RpLQZLqXQ9dFToLmF4YFknAmTx8dH0TUtXy2wjVoMnjzG4qrdzIJ9O_XIPA5EnyfMbx0dQ0lMlkceOFVuHX7icnkXBu89R8m5uuA66wB-vPX-o_BsHqz9XohtmP0pBTPSZAxe10SjeyF6yYQbY8eSpt7tvnCwzaBJ3XbN5s9T045wuryRN_w" alt="Large format white porcelain tiles" className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7yv6zEszqzr-2pwdRFQcJHz25nJT4ztZkiLo1qy6jKMUBUTG_AchfF_cRvqCbYju4vxll96SR5eUIju4fT5EPd8RpLQZLqXQ9dFToLmF4YFknAmTx8dH0TUtXy2wjVoMnjzG4qrdzIJ9O_XIPA5EnyfMbx0dQ0lMlkceOFVuHX7icnkXBu89R8m5uuA66wB-vPX-o_BsHqz9XohtmP0pBTPSZAxe10SjeyF6yYQbY8eSpt7tvnCwzaBJ3XbN5s9T045wuryRN_w" alt="Large format white porcelain tiles" className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg" loading="lazy" decoding="async" />
               <div>
                 <p className="text-[#111418] dark:text-white text-base font-bold leading-tight">Porcelain Tiles</p>
                 <p className="text-[#617589] dark:text-gray-400 text-xs mt-1">High-traffic luxury finish</p>
               </div>
             </div>
             <div className="flex flex-col gap-3 pb-3 bg-white dark:bg-gray-800/50 rounded-xl p-3 shadow-sm border border-gray-100 dark:border-gray-800">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyZe56P-U1J5W8D8_yhxGK2af_zGI-7EH89vK7hZnGmrXj44j5U6AU7UtNbausEY8KkIJpiAIB0ayWybYo8Ge8ATusBPQUFs0dzYDuAvU0AiFVb0VYYsHSxV0b-nB9EnhBd1ZC9Fruk8FY9HpVNEB9llS9S7l5SBo4SfMeGcxWwFg7LvgyqIj0CjJ_i2x2eb-y-HzUuntqWh-eW4Hwk68SlqKFpZAEo93q8v25LfeN33_f2HdUbxwdpL8llvbkDSmNbh37yKDfw" alt="Modern hardwood parquet flooring" className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyZe56P-U1J5W8D8_yhxGK2af_zGI-7EH89vK7hZnGmrXj44j5U6AU7UtNbausEY8KkIJpiAIB0ayWybYo8Ge8ATusBPQUFs0dzYDuAvU0AiFVb0VYYsHSxV0b-nB9EnhBd1ZC9Fruk8FY9HpVNEB9llS9S7l5SBo4SfMeGcxWwFg7LvgyqIj0CjJ_i2x2eb-y-HzUuntqWh-eW4Hwk68SlqKFpZAEo93q8v25LfeN33_f2HdUbxwdpL8llvbkDSmNbh37yKDfw" alt="Modern hardwood parquet flooring" className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg" loading="lazy" decoding="async" />
               <div>
                 <p className="text-[#111418] dark:text-white text-base font-bold leading-tight">Wood Flooring</p>
                 <p className="text-[#617589] dark:text-gray-400 text-xs mt-1">Timeless warmth & elegance</p>
@@ -98,9 +115,9 @@ const Flooring: React.FC = () => {
         <div className="px-4 py-8 animate-slide-up delay-500">
           <h3 className="text-[#111418] dark:text-white text-xl font-bold mb-4">Completed Projects</h3>
           <div className="grid grid-cols-2 gap-2">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkzVZB1Hv7YdMgmZ9aADZxROa8d8wrZkGENecmftqhvrxIYWt5salqDdxF7n9rfEg-xOeByH5hMvIPrqm-k12ZlWspqCl6dJahch0ef4YOLUWiHtyAy3hB7rOjAc4A9heDFr4WEHzJ3g2ZWuVpXofKRFvxeHhuMb1-0IY-1SsRMdMpp4wfW7cFkEVCjiDlBCahyIPrex6kPwdDtyGDD6h8iS62x50XrHi87xHNkjct56YI2soa8i8OsdukqTUnQZ0q4fOaEWBVHA" alt="Modern bathroom with marble tiling" className="h-48 w-full object-cover rounded-lg bg-center" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt3zz5YZ1L9k75gGTPSjH-WdvEvogZicey3x1J6A8wp4bE5pfr6W8Cx6knLmq18i90wG_6JulgCXXyZke8rZqrrim79fEf_3mxBajhfHzIqemPU7Q-2Pq8E5wQenMkjGmV-92JtWqt6zLdC2fwFiDXkwRvhjTxFymNHiAujFFfeLLhtdd4TZ8_uWBgXwTE9JWdfPlY0Q55eXJ_u-iaUy1o9JA60YeWUokV4ZWQv3OPz3su8gEabXmwJ_VD57212elO3cFuneXkKg" alt="Commercial lobby with polished tiles" className="h-48 w-full object-cover rounded-lg bg-center" loading="lazy" />
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_-LLZlyEYa1AsjNy044P-6sgM-vlN530_-tCnOemG9sEjhTaKexreyurGXHqc2bnugoIkXV1D6GkfCnPsR9t84IiKN9STrDDDIWP6tSNL_2k0y6fn8fwCD3Jm5jrG90uFYre1yhUWEsOIGUV0o4ntO_3ZNCC-uJVntR6VBSIpFFtHJOPGeB-NEKQr-P0HpUi48x1VASEheqNuaxWPZQenMLTurun_m-RoGMNsXdj5ftuJAqMfr_kHA2sSVvYLo4JWXZaQ3qRvvg" alt="Large outdoor patio tiling project" className="h-64 col-span-2 w-full object-cover rounded-lg bg-center" loading="lazy" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkzVZB1Hv7YdMgmZ9aADZxROa8d8wrZkGENecmftqhvrxIYWt5salqDdxF7n9rfEg-xOeByH5hMvIPrqm-k12ZlWspqCl6dJahch0ef4YOLUWiHtyAy3hB7rOjAc4A9heDFr4WEHzJ3g2ZWuVpXofKRFvxeHhuMb1-0IY-1SsRMdMpp4wfW7cFkEVCjiDlBCahyIPrex6kPwdDtyGDD6h8iS62x50XrHi87xHNkjct56YI2soa8i8OsdukqTUnQZ0q4fOaEWBVHA" alt="Modern bathroom with marble tiling" className="h-48 w-full object-cover rounded-lg bg-center" loading="lazy" decoding="async" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt3zz5YZ1L9k75gGTPSjH-WdvEvogZicey3x1J6A8wp4bE5pfr6W8Cx6knLmq18i90wG_6JulgCXXyZke8rZqrrim79fEf_3mxBajhfHzIqemPU7Q-2Pq8E5wQenMkjGmV-92JtWqt6zLdC2fwFiDXkwRvhjTxFymNHiAujFFfeLLhtdd4TZ8_uWBgXwTE9JWdfPlY0Q55eXJ_u-iaUy1o9JA60YeWUokV4ZWQv3OPz3su8gEabXmwJ_VD57212elO3cFuneXkKg" alt="Commercial lobby with polished tiles" className="h-48 w-full object-cover rounded-lg bg-center" loading="lazy" decoding="async" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_-LLZlyEYa1AsjNy044P-6sgM-vlN530_-tCnOemG9sEjhTaKexreyurGXHqc2bnugoIkXV1D6GkfCnPsR9t84IiKN9STrDDDIWP6tSNL_2k0y6fn8fwCD3Jm5jrG90uFYre1yhUWEsOIGUV0o4ntO_3ZNCC-uJVntR6VBSIpFFtHJOPGeB-NEKQr-P0HpUi48x1VASEheqNuaxWPZQenMLTurun_m-RoGMNsXdj5ftuJAqMfr_kHA2sSVvYLo4JWXZaQ3qRvvg" alt="Large outdoor patio tiling project" className="h-64 col-span-2 w-full object-cover rounded-lg bg-center" loading="lazy" decoding="async" />
           </div>
         </div>
         <div className="px-4 pb-24 animate-slide-up delay-500">
@@ -108,7 +125,7 @@ const Flooring: React.FC = () => {
             <span className="material-symbols-outlined text-[#137fec] mb-2">format_quote</span>
             <p className="text-base">"The attention to detail in our home's tiling was extraordinary. Mystical Construction turned our vision into a masterpiece. The grout lines are perfect!"</p>
             <div className="mt-4 flex items-center gap-3 not-italic">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ATRlLLF_ePejwkwbRObyGZS-8j5si2hpINfX6aEE4S5Sl86gC_KGpA6t3eOQ96oXdJ5l5kFRykY3AxAr7C3PjPnAgPo-2whk-GRIqf9tSVAEwqGnm9KCdS128oFjuRQMjH_J_EeqshhksXg1Hlk6pj-hMHlIvnhC1nGY9_Mwpud2GToOGpy79PVtDG0ObOO09t4h9Ywj05x0xH9GMITrT64i8MM-iUlLn0T5FX1D0Nxp0WZRDojWcTIOQDblkZ7Q8JV0J1npsg" alt="Portrait of a satisfied client" className="size-10 rounded-full object-cover bg-gray-200" loading="lazy" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ATRlLLF_ePejwkwbRObyGZS-8j5si2hpINfX6aEE4S5Sl86gC_KGpA6t3eOQ96oXdJ5l5kFRykY3AxAr7C3PjPnAgPo-2whk-GRIqf9tSVAEwqGnm9KCdS128oFjuRQMjH_J_EeqshhksXg1Hlk6pj-hMHlIvnhC1nGY9_Mwpud2GToOGpy79PVtDG0ObOO09t4h9Ywj05x0xH9GMITrT64i8MM-iUlLn0T5FX1D0Nxp0WZRDojWcTIOQDblkZ7Q8JV0J1npsg" alt="Portrait of a satisfied client" className="size-10 rounded-full object-cover bg-gray-200" loading="lazy" decoding="async" />
               <div>
                 <p className="font-bold text-sm">David Miller</p>
                 <p className="text-xs text-[#617589]">Sandton, Gauteng</p>
