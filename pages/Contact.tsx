@@ -5,14 +5,56 @@ import MobileMenu from '../components/MobileMenu';
 const Contact: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState('');
+  const [submissionType, setSubmissionType] = useState<'whatsapp' | 'email'>('whatsapp');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate network request
+    
+    const formData = new FormData(e.currentTarget);
+    const fullname = formData.get('fullname');
+    const phone = formData.get('phone');
+    const service = formData.get('service');
+    const details = formData.get('details');
+
+    let url = '';
+
+    if (submissionType === 'whatsapp') {
+      const message = `*New Quote Request from Website*
+
+*Name:* ${fullname}
+*Phone:* ${phone}
+*Service:* ${service}
+*Details:* ${details}`;
+      const whatsappNumber = "27618607883";
+      url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    } else {
+      const subject = `Quote Request: ${service} - ${fullname}`;
+      const body = `Name: ${fullname}
+Phone: ${phone}
+Service: ${service}
+
+Project Details:
+${details}`;
+      url = `mailto:info@mysticalbuild.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+    
+    setRedirectUrl(url);
+    setIsSubmitted(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Attempt to open automatically after a short delay
     setTimeout(() => {
-      setIsSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 500);
+      // Mailto links often work better in the same window to trigger the app, 
+      // WhatsApp often works better in a new tab/window depending on device.
+      // We'll use window.open for WhatsApp and location.href for email to be safe, 
+      // or window.open for both with _blank.
+      if (submissionType === 'whatsapp') {
+        window.open(url, '_blank');
+      } else {
+        window.location.href = url;
+      }
+    }, 700);
   };
 
   return (
@@ -84,10 +126,22 @@ const Contact: React.FC = () => {
               <textarea className="block w-full px-4 py-4 text-base text-gray-900 bg-white dark:bg-white/5 border border-gray-300 dark:border-white/20 rounded-lg focus:ring-[#f5a300] focus:border-[#f5a300] peer dark:text-white outline-none" id="details" name="details" placeholder=" " rows={4} required></textarea>
               <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform top-4 left-4 z-10 origin-[0] peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-1/2 pointer-events-none transition-all peer-focus:text-[#f5a300] peer-focus:bg-white dark:peer-focus:bg-[#1a1f2e] peer-focus:left-3 px-1" htmlFor="details">Project Details</label>
             </div>
-            <div className="pt-2">
-              <button className="w-full bg-[#f5a300] hover:bg-[#f5a300]/90 text-[#121826] font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
-                <span>Submit Request</span>
-                <span className="material-symbols-outlined text-[20px]">send</span>
+            <div className="grid grid-cols-1 gap-3 pt-2">
+              <button 
+                type="submit" 
+                onClick={() => setSubmissionType('whatsapp')}
+                className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
+              >
+                <span>Send via WhatsApp</span>
+                <span className="material-symbols-outlined text-[20px]">chat</span>
+              </button>
+              <button 
+                type="submit" 
+                onClick={() => setSubmissionType('email')}
+                className="w-full bg-[#f5a300] hover:bg-[#f5a300]/90 text-[#121826] font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
+              >
+                <span>Send via Email</span>
+                <span className="material-symbols-outlined text-[20px]">mail</span>
               </button>
             </div>
           </form>
@@ -97,20 +151,38 @@ const Contact: React.FC = () => {
           <div className="w-24 h-24 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6 shadow-inner animate-bounce">
             <span className="material-symbols-outlined text-green-600 dark:text-green-400 text-6xl">check_circle</span>
           </div>
-          <h2 className="text-[#181610] dark:text-white text-3xl font-black mb-3">Quote Requested!</h2>
+          <h2 className="text-[#181610] dark:text-white text-3xl font-black mb-3">Redirecting...</h2>
           <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-sm mx-auto leading-relaxed">
-            Thank you for choosing Mystical Construction. We have received your project details and our team will get back to you within 24 hours.
+            {submissionType === 'whatsapp' 
+              ? "We are opening WhatsApp to send your quote. If it didn't open automatically, click below."
+              : "We are opening your email app to send your quote. If it didn't open automatically, click below."
+            }
           </p>
           <div className="w-full max-w-sm space-y-3">
-            <Link to="/" className="w-full bg-[#f5a300] hover:bg-[#f5a300]/90 text-[#121826] font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 active:scale-[0.98] flex items-center justify-center gap-2">
-              <span>Back to Home</span>
-            </Link>
+            <a 
+              href={redirectUrl} 
+              target={submissionType === 'whatsapp' ? "_blank" : "_self"}
+              rel="noopener noreferrer"
+              className={`w-full font-bold py-4 px-6 rounded-xl shadow-lg transition duration-200 active:scale-[0.98] flex items-center justify-center gap-2 ${
+                submissionType === 'whatsapp' 
+                  ? "bg-[#25D366] hover:bg-[#25D366]/90 text-white" 
+                  : "bg-[#f5a300] hover:bg-[#f5a300]/90 text-[#121826]"
+              }`}
+            >
+              <span>{submissionType === 'whatsapp' ? "Open WhatsApp" : "Open Email App"}</span>
+              <span className="material-symbols-outlined text-[20px]">
+                {submissionType === 'whatsapp' ? "chat" : "mail"}
+              </span>
+            </a>
             <button 
               onClick={() => setIsSubmitted(false)} 
               className="w-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-700 dark:text-white font-bold py-4 px-6 rounded-xl transition duration-200 active:scale-[0.98]"
             >
-              Send Another Request
+              Start New Quote
             </button>
+            <Link to="/" className="w-full text-center block text-sm text-gray-500 py-2">
+              Back to Home
+            </Link>
           </div>
         </div>
       )}
