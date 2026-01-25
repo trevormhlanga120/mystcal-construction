@@ -29,11 +29,19 @@ const Building: React.FC = () => {
         <main className="flex-grow">
           <div className="@container">
             <div className="@[480px]:px-4 @[480px]:py-4">
-              <div className="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-white @[480px]:rounded-xl min-h-[320px] relative shadow-lg animate-slide-left" data-alt="Modern South African residential construction site at sunset" style={{backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuADJShrZshbdMmZkg5GtPuv6Y_T7k8Zp5sEKmUxY_lPvrIws1xQrRi9LKVS4hCz55wj7Gp-b0ULjQB1r0iuvWFtQn5S675UK71WAWLxFUDcObWOhFJoKshkN17hHFeoPYwResaXjVcdawd7T29sAjB7XDU44xQOs_TFuJ6yK0QCwV_mD_diSf30ssktLqB0JondSM_oyhpcJSJw8x3_NN-cwJBiLcHpuR8isPGEoKlAoLbpczJpZVyrbGWaXrz6k9SNxHCt06MSzg")'}}>
-                <div className="flex flex-col p-6 gap-2">
-                  <span className="bg-[#e99f0c] text-black font-bold text-xs uppercase tracking-widest px-2 py-1 rounded w-fit animate-slide-up">Service Detail</span>
+              <div className="relative flex flex-col justify-end overflow-hidden @[480px]:rounded-xl min-h-[320px] shadow-lg animate-slide-left p-6 gap-2">
+                <img 
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuADJShrZshbdMmZkg5GtPuv6Y_T7k8Zp5sEKmUxY_lPvrIws1xQrRi9LKVS4hCz55wj7Gp-b0ULjQB1r0iuvWFtQn5S675UK71WAWLxFUDcObWOhFJoKshkN17hHFeoPYwResaXjVcdawd7T29sAjB7XDU44xQOs_TFuJ6yK0QCwV_mD_diSf30ssktLqB0JondSM_oyhpcJSJw8x3_NN-cwJBiLcHpuR8isPGEoKlAoLbpczJpZVyrbGWaXrz6k9SNxHCt06MSzg" 
+                  alt="Modern South African residential construction site at sunset"
+                  className="absolute inset-0 w-full h-full object-cover -z-20"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 -z-10" style={{background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%)'}}></div>
+                <div className="relative z-10">
+                  <span className="bg-[#e99f0c] text-black font-bold text-xs uppercase tracking-widest px-2 py-1 rounded w-fit animate-slide-up inline-block mb-2">Service Detail</span>
                   <h1 className="text-white text-3xl font-bold leading-tight animate-slide-up delay-100">Building & Renovations</h1>
-                  <p className="text-gray-300 text-sm max-w-xs animate-slide-up delay-200">Premium construction solutions for residential and commercial projects across South Africa.</p>
+                  <p className="text-gray-300 text-sm max-w-xs animate-slide-up delay-200 mt-2">Premium construction solutions for residential and commercial projects across South Africa.</p>
                 </div>
               </div>
             </div>

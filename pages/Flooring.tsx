@@ -37,9 +37,18 @@ const Flooring: React.FC = () => {
         </div>
         <div className="@container">
           <div className="@[480px]:px-4 @[480px]:py-3">
-            <div className="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-white @[480px]:rounded-xl min-h-[320px] shadow-lg animate-slide-left" data-alt="Luxury modern living room with pristine porcelain tile flooring" style={{backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_rlo96bz9xnLTESyWpWHEdWK72OwfYaUW9mEV3vlIKXll25fIsINS9ayyIzRUmr6FRv1MBOHxVWI5GQTlFt7mSQrlBDZwzuolpVkd1Pw-wJFj9qyD9SMETWKxLH1twQuU9GNm7hGzQvP6--z3oO7mqvhwCstg47i9COb1S7fU-_6cRj7KGUoB71k0Z5XgyZ1jNXxt7QYo2ELLpjNs74-Vkv0PF4hsuJRKUXtC80WfMSyFvjJXgNSluEr_ws5kSmiSHJS-qp8qEQ")'}}>
-              <div className="flex flex-col p-6 gap-2">
-                <span className="bg-[#137fec] text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded w-fit animate-slide-up">Expert Service</span>
+            <div className="relative flex flex-col justify-end overflow-hidden @[480px]:rounded-xl min-h-[320px] shadow-lg animate-slide-left p-6 gap-2">
+              <img 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_rlo96bz9xnLTESyWpWHEdWK72OwfYaUW9mEV3vlIKXll25fIsINS9ayyIzRUmr6FRv1MBOHxVWI5GQTlFt7mSQrlBDZwzuolpVkd1Pw-wJFj9qyD9SMETWKxLH1twQuU9GNm7hGzQvP6--z3oO7mqvhwCstg47i9COb1S7fU-_6cRj7KGUoB71k0Z5XgyZ1jNXxt7QYo2ELLpjNs74-Vkv0PF4hsuJRKUXtC80WfMSyFvjJXgNSluEr_ws5kSmiSHJS-qp8qEQ" 
+                alt="Luxury modern living room with pristine porcelain tile flooring"
+                className="absolute inset-0 w-full h-full object-cover -z-20"
+                loading="eager"
+                decoding="async"
+              />
+              <div className="absolute inset-0 -z-10" style={{background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%)'}}></div>
+              
+              <div className="relative z-10">
+                <span className="bg-[#137fec] text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded w-fit animate-slide-up inline-block mb-2">Expert Service</span>
                 <p className="text-white tracking-light text-3xl font-extrabold leading-tight animate-slide-up delay-100">Premium Flooring Solutions</p>
               </div>
             </div>

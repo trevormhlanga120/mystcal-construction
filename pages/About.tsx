@@ -48,7 +48,7 @@ const About: React.FC = () => {
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWAbFSEvrXjQNa2CIzbcJsjeM_gYdGRG_jH0HXg5q7RkAvkGKrRGeGEvUAq-V_zPxtXOYTamfpzxQtIgsuujaaW8mKAc1avDa30vKJafFOltkK8kHL8co6OX0i3hENMX2G6yUMkngwU7oGrFIIE2usrF_rtfAsOBKTZ67g_Omj22SVWr84vipOSMhbGkGar-A_cWlulqxfFk4_vuyS2F5FSjQoKWmfgKEtxFyEfK1MRskRlH9MYagb9YDm4RI9lIcWYvXMNDagxQ" 
                 alt="Luxury modern home interior with high-end wood finishes" 
                 className="w-full bg-center bg-no-repeat aspect-[4/3] object-cover @[864px]:aspect-video animate-slide-left" 
-                loading="lazy" 
+                loading="eager" 
                 decoding="async"
               />
               <div className="flex flex-col gap-6 p-6 @[864px]:px-12 @[864px]:py-16 bg-white dark:bg-background-dark">

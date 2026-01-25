@@ -33,8 +33,17 @@ const Home: React.FC = () => {
       </div>
       <div className="@container animate-slide-left">
         <div className="relative">
-          <div className="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-start justify-end px-6 pb-12" style={{backgroundImage: 'linear-gradient(rgba(31, 31, 31, 0.4) 0%, rgba(31, 31, 31, 0.98) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0q8gOBqL4YIhM75f1rHoE4wylZVlBzWgJO1mowr3vtSyMV_CW052iuc8eFKCV7X4mMgctg-7aeWUCzUJX2YhftRjGkJEaeRfVV4OBfc5wCJFFQAPTNN-YSz2SkIJbhi-dIje4i3vVJMBjxqnuPngXsv7fOeGIr4JLAuhC8BrcNcvKDSSmojnvsP83w_9JsgFcVWAB1e3lZwJgY6i4cRo47vK_3EtiYavRce_vesaZyUa529gSkuLAjxwRad5CkkVZhlgmnAnB6Q")'}}>
-            <div className="flex flex-col gap-4 text-left">
+          <div className="relative flex min-h-[520px] flex-col gap-6 items-start justify-end px-6 pb-12 overflow-hidden">
+            <img 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0q8gOBqL4YIhM75f1rHoE4wylZVlBzWgJO1mowr3vtSyMV_CW052iuc8eFKCV7X4mMgctg-7aeWUCzUJX2YhftRjGkJEaeRfVV4OBfc5wCJFFQAPTNN-YSz2SkIJbhi-dIje4i3vVJMBjxqnuPngXsv7fOeGIr4JLAuhC8BrcNcvKDSSmojnvsP83w_9JsgFcVWAB1e3lZwJgY6i4cRo47vK_3EtiYavRce_vesaZyUa529gSkuLAjxwRad5CkkVZhlgmnAnB6Q" 
+              alt="Expert Construction & Sustainable Energy" 
+              className="absolute inset-0 w-full h-full object-cover -z-20"
+              loading="eager"
+              decoding="async"
+            />
+            <div className="absolute inset-0 -z-10" style={{background: 'linear-gradient(rgba(31, 31, 31, 0.4) 0%, rgba(31, 31, 31, 0.98) 100%)'}}></div>
+            
+            <div className="flex flex-col gap-4 text-left relative z-10">
               <Link to="/solar" className="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 px-3 py-1 rounded-full w-fit animate-slide-up">
                 <span className="material-symbols-outlined text-primary text-sm">solar_power</span>
                 <span className="text-primary text-xs font-bold uppercase tracking-wider">New: Solar Installation</span>
@@ -46,7 +55,7 @@ const Home: React.FC = () => {
                 Leading the way in premium renovations and professional solar power solutions across South Africa.
               </p>
             </div>
-            <div className="flex flex-col w-full gap-3 mt-4 animate-slide-up delay-300">
+            <div className="flex flex-col w-full gap-3 mt-4 animate-slide-up delay-300 relative z-10">
               <Link to="/contact" className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-primary text-charcoal text-base font-bold shadow-lg active:scale-[0.98] transition-transform">
                 <span>Request Free Quote</span>
               </Link>

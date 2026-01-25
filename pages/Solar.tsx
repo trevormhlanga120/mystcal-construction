@@ -69,14 +69,23 @@ const Solar: React.FC = () => {
       <div className="max-w-xl mx-auto">
         <div className="@container">
           <div className="@[480px]:px-4 @[480px]:py-3">
-            <div className="relative bg-cover bg-center flex flex-col justify-end overflow-hidden bg-zinc-200 @[480px]:rounded-xl min-h-80 animate-slide-left" data-alt="Modern South African home with rooftop solar panels" style={{backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNtta-7fql1oMA3-GHR-w3sClT-P5-cY5_z7aGU3wAqdF75MuarEomXnVkR5i404VtTLsfmK8FDcY7eRN97qzyX9abBQ5QeNKSjkS27WBV6bSqafEjueYAADno6U9v36JghNo8D1fBd4Nwh7BS7lXsf-8GKVFrxqxp6PIH1ytfLFup8wUmGuKdzDS7-X191YCKGb8dVT1AWqqcaH_rsH3RPIdVbkdOBTWM55oMo_wwHgsAQx4k4ObbWIL-BWjZEGcTnv4X2nu3pw")'}}>
-              <div className="flex flex-col p-6">
+            <div className="relative flex flex-col justify-end overflow-hidden @[480px]:rounded-xl min-h-80 animate-slide-left p-6 gap-0">
+               <img 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNtta-7fql1oMA3-GHR-w3sClT-P5-cY5_z7aGU3wAqdF75MuarEomXnVkR5i404VtTLsfmK8FDcY7eRN97qzyX9abBQ5QeNKSjkS27WBV6bSqafEjueYAADno6U9v36JghNo8D1fBd4Nwh7BS7lXsf-8GKVFrxqxp6PIH1ytfLFup8wUmGuKdzDS7-X191YCKGb8dVT1AWqqcaH_rsH3RPIdVbkdOBTWM55oMo_wwHgsAQx4k4ObbWIL-BWjZEGcTnv4X2nu3pw" 
+                 alt="Modern South African home with rooftop solar panels"
+                 className="absolute inset-0 w-full h-full object-cover -z-20"
+                 loading="eager"
+                 decoding="async"
+               />
+               <div className="absolute inset-0 -z-10" style={{background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 40%)'}}></div>
+               
+               <div className="relative z-10">
                 <div className="inline-flex items-center gap-1 bg-[#D4AF37] px-2 py-1 rounded text-[10px] font-bold text-white uppercase tracking-widest mb-2 w-fit animate-slide-up">
                   <span className="material-symbols-outlined text-[12px]">workspace_premium</span> Premium Service
                 </div>
                 <p className="text-white tracking-tight text-[32px] font-bold leading-tight animate-slide-up delay-100">Switch to Sustainable Energy</p>
                 <p className="text-white/80 text-sm mt-1 animate-slide-up delay-200">Tier-1 solar solutions for luxury homes.</p>
-              </div>
+               </div>
             </div>
           </div>
         </div>
@@ -108,11 +117,27 @@ const Solar: React.FC = () => {
         </div>
         <h2 className="text-[#111812] dark:text-white text-[22px] font-bold leading-tight tracking-tight px-4 pt-4 animate-slide-up delay-100">Premium Components</h2>
         <div className="grid grid-cols-2 gap-3 p-4 animate-slide-up delay-200">
-          <div className="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-square shadow-lg" data-alt="Monocrystalline solar panel detail" style={{backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwyYjiJmwEVGIIMoR1RH3h215ozrtjXie3I7rn6Ug5PzrD5zXDMApp2c1l7m8joAwNQNDomlNh27MEAPRZU1d6KLop7k9jc08qrBeQX5RjO9KusM7_c_BNiLWrWis_F27woFqHAq8GFr-wpI5MnJiU3uC4PJYBBbjXIKbk28fKKAdHtC1YuOhQxOmFU9L5zAzFMu4YoNYM4xSNON6MyZpzCI8CSzrMpagZojc_zV0K7lqtQ1GvzHp630KRcX7wBzmNJRbnD3CnlA")'}}>
-            <p className="text-white text-sm font-bold leading-tight">Tier-1 Mono Panels</p>
+          <div className="relative flex flex-col gap-3 rounded-xl justify-end p-4 aspect-square shadow-lg overflow-hidden">
+            <img 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwyYjiJmwEVGIIMoR1RH3h215ozrtjXie3I7rn6Ug5PzrD5zXDMApp2c1l7m8joAwNQNDomlNh27MEAPRZU1d6KLop7k9jc08qrBeQX5RjO9KusM7_c_BNiLWrWis_F27woFqHAq8GFr-wpI5MnJiU3uC4PJYBBbjXIKbk28fKKAdHtC1YuOhQxOmFU9L5zAzFMu4YoNYM4xSNON6MyZpzCI8CSzrMpagZojc_zV0K7lqtQ1GvzHp630KRcX7wBzmNJRbnD3CnlA" 
+              alt="Monocrystalline solar panel detail" 
+              className="absolute inset-0 w-full h-full object-cover -z-20"
+              loading="lazy" 
+              decoding="async"
+            />
+            <div className="absolute inset-0 -z-10" style={{background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%)'}}></div>
+            <p className="text-white text-sm font-bold leading-tight z-10">Tier-1 Mono Panels</p>
           </div>
-          <div className="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-square shadow-lg" data-alt="Hybrid solar inverter installed on a wall" style={{backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-jtiHS_Zgl01xZbF5srsI7ma-JaL6scDUYW2P0u2Kemb9eCixtqB9x74EsAFbak5p3R7W9ZKsQ9da2SxMPTDEZ32spWKyxAM3h1A8z-wM61JSvKl_bdsmw1dsNANB6nWQDRFilWTtOpm7I1O5tMuQEG1_Ze6TNQAsdoeILuQIndZDTVNETXDax8LlwSf3w5yOVjbNafcJvCZCym9LWSBM0rwrSA2ZivTpEmjtW3s190Fw9JQoovWoEZO9BwWBMLjrXT75TP4y4w")'}}>
-            <p className="text-white text-sm font-bold leading-tight">Hybrid Inverters</p>
+          <div className="relative flex flex-col gap-3 rounded-xl justify-end p-4 aspect-square shadow-lg overflow-hidden">
+             <img 
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-jtiHS_Zgl01xZbF5srsI7ma-JaL6scDUYW2P0u2Kemb9eCixtqB9x74EsAFbak5p3R7W9ZKsQ9da2SxMPTDEZ32spWKyxAM3h1A8z-wM61JSvKl_bdsmw1dsNANB6nWQDRFilWTtOpm7I1O5tMuQEG1_Ze6TNQAsdoeILuQIndZDTVNETXDax8LlwSf3w5yOVjbNafcJvCZCym9LWSBM0rwrSA2ZivTpEmjtW3s190Fw9JQoovWoEZO9BwWBMLjrXT75TP4y4w" 
+               alt="Hybrid solar inverter installed on a wall"
+               className="absolute inset-0 w-full h-full object-cover -z-20"
+               loading="lazy" 
+               decoding="async"
+             />
+             <div className="absolute inset-0 -z-10" style={{background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%)'}}></div>
+             <p className="text-white text-sm font-bold leading-tight z-10">Hybrid Inverters</p>
           </div>
         </div>
         <div className="px-4 py-6 bg-white dark:bg-zinc-900/50 mt-4 animate-slide-up delay-300">
