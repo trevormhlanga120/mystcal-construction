@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Electrical: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Electrical: React.FC = () => {
 
   return (
     <div className="bg-[#f8f7f5] dark:bg-[#221c10] font-display">
+      <SEO 
+        title="Electrical Services" 
+        description="Certified electrical services including repairs, installations, and COC issuance. SANS 10142 compliant electricians."
+        keywords="electrical services, electrician, electrical repairs, COC certificate, electrical compliance, wiring, DB board"
+      />
       <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#221c10]/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
         <div className="text-gray-900 dark:text-white flex size-12 shrink-0 items-center cursor-pointer" onClick={() => navigate(-1)}>
           <span className="material-symbols-outlined">arrow_back_ios</span>

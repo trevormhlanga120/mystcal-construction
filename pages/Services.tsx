@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
+import SEO from '../components/SEO';
 
 interface ServiceItem {
   path: string;
@@ -36,6 +37,11 @@ const Services: React.FC = () => {
 
   return (
     <div className="bg-concrete-grey dark:bg-background-dark text-[#181610] dark:text-white flex flex-col min-h-screen font-sans">
+      <SEO 
+        title="Our Services" 
+        description="Comprehensive construction and renovation services including building, solar, roofing, plumbing, electrical, and more."
+        keywords="construction services, renovation services, solar installation, roofing, plumbing, electrical, plastering, drywall, ceiling, flooring, painting, carpentry"
+      />
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <header className="sticky top-0 z-50 bg-brand-dark shadow-md">
         <div className="flex items-center p-3 justify-between max-w-md mx-auto">

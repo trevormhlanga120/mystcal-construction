@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Plastering: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Plastering: React.FC = () => {
 
   return (
     <div className="bg-[#f8f7f6] dark:bg-[#221c10] font-display min-h-screen">
+      <SEO 
+        title="Plastering Services" 
+        description="Premium plastering services including skim coating, decorative mouldings, and crack repair. Interior and exterior finishes."
+        keywords="plastering services, skim coating, decorative mouldings, crack repair, wall plastering, smooth wall finish"
+      />
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
         <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#221c10]/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
           <div className="text-[#e29d12] flex size-12 shrink-0 items-center cursor-pointer" onClick={() => navigate(-1)}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Ceiling: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Ceiling: React.FC = () => {
 
   return (
     <div className="bg-[#f8f7f5] dark:bg-[#231c0f] min-h-screen text-[#181610] dark:text-white font-display">
+      <SEO 
+        title="Ceiling Services" 
+        description="Expert ceiling installation and repairs. Rhino board ceilings, suspended ceilings, and decorative cornicing."
+        keywords="ceiling installation, ceiling repairs, rhino board ceilings, suspended ceilings, cornicing, ceiling contractor"
+      />
       <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#231c0f]/90 backdrop-blur-md p-4 justify-between border-b border-gray-100 dark:border-white/10">
         <div className="flex items-center gap-3">
           <div className="text-[#181610] dark:text-white cursor-pointer" onClick={() => navigate(-1)}>

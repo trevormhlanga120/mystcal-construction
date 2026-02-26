@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Plumbing: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Plumbing: React.FC = () => {
 
   return (
     <div className="bg-[#f5f7f8] dark:bg-[#101922] text-[#111418] dark:text-white antialiased font-display min-h-screen">
+      <SEO 
+        title="Plumbing Services" 
+        description="Reliable plumbing services including leak detection, pipe installation, and bathroom renovations. 24/7 emergency support available."
+        keywords="plumbing services, leak detection, pipe installation, bathroom renovations, emergency plumber, master plumbers"
+      />
       <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden pb-24">
         <header className="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-[#101922]/80 backdrop-blur-md p-4 justify-between border-b border-gray-100 dark:border-gray-800">
           <div className="text-[#111418] dark:text-white flex size-12 shrink-0 items-center cursor-pointer" onClick={() => navigate(-1)}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 interface Project {
   id: number;
@@ -66,6 +67,11 @@ const Gallery: React.FC = () => {
 
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-white transition-colors duration-300 min-h-screen">
+      <SEO 
+        title="Project Gallery" 
+        description="View our portfolio of residential, commercial, and industrial construction projects across South Africa."
+        keywords="construction gallery, renovation portfolio, building projects, mystical construction work"
+      />
       <nav className="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-brand-dark/80 ios-blur px-4 py-3 border-b border-gray-100 dark:border-gray-800">
         <div className="flex items-center w-12 cursor-pointer" onClick={() => navigate(-1)}>
           <span className="material-symbols-outlined text-charcoal dark:text-white">arrow_back_ios</span>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Roofing: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Roofing: React.FC = () => {
 
   return (
     <div className="bg-[#f8f7f5] dark:bg-[#221c10] font-display text-[#181611] dark:text-[#f8f7f5] min-h-screen">
+      <SEO 
+        title="Roofing Services" 
+        description="Expert roofing services including repairs, waterproofing, and new installations. Protect your home with Mystical Construction."
+        keywords="roofing services, roof repairs, waterproofing, new roof installation, roof leaks, roof maintenance"
+      />
       <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div className="flex items-center bg-[#f8f7f5] dark:bg-[#221c10] p-4 pb-2 justify-between sticky top-0 z-50 border-b border-[#e6e2db] dark:border-[#3d3424]">
           <div className="text-[#181611] dark:text-[#f8f7f5] flex size-12 shrink-0 items-center">

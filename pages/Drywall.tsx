@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Drywall: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Drywall: React.FC = () => {
 
   return (
     <div className="bg-[#f6f7f8] dark:bg-[#101922] font-display text-[#111418] dark:text-white min-h-screen">
+      <SEO 
+        title="Drywall & Partitioning" 
+        description="Professional drywall and partitioning services for offices and homes. Soundproofing and fire-rated solutions available."
+        keywords="drywall installation, office partitioning, home extensions, soundproofing, fire rated drywall, partition walls"
+      />
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24">
         <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#101922]/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
           <div className="text-[#111418] dark:text-white flex size-12 shrink-0 items-center cursor-pointer" onClick={() => navigate(-1)}>

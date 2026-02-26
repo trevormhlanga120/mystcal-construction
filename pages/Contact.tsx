@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
+import SEO from '../components/SEO';
 
 const Contact: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,6 +60,11 @@ ${details}`;
 
   return (
     <div className="bg-background-light dark:bg-background-dark min-h-screen font-display">
+      <SEO 
+        title="Contact Us" 
+        description="Get a free quote for your construction or renovation project. Contact Mystical Construction via phone, email, or WhatsApp."
+        keywords="contact construction company, free quote, renovation estimate, builders pretoria west"
+      />
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <header className="flex items-center justify-between bg-[#121826] dark:bg-[#0a0f1a] p-4 sticky top-0 z-20 border-b border-white/10 shadow-lg">
         <div className="flex items-center gap-3">

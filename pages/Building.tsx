@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
+import SEO from '../components/SEO';
 
 const Building: React.FC = () => {
   const navigate = useNavigate();
@@ -8,6 +9,11 @@ const Building: React.FC = () => {
 
   return (
     <div className="bg-background-light dark:bg-[#221c10] font-space text-[#181611] dark:text-[#f8f7f5] transition-colors duration-300 min-h-screen">
+      <SEO 
+        title="Building & Renovations" 
+        description="Professional building and renovation services. From new builds to home extensions and structural changes, we deliver quality craftsmanship."
+        keywords="building services, home renovations, house extensions, structural changes, construction company, new builds"
+      />
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <header className="sticky top-0 z-50 flex items-center bg-background-light/90 dark:bg-[#221c10]/90 backdrop-blur-md p-4 justify-between border-b border-gray-200 dark:border-gray-800">

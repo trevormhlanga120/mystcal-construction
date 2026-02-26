@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-concrete min-h-screen">
+      <SEO 
+        title="Home" 
+        description="Expert construction, renovation, and solar energy solutions in South Africa. Trust Mystical Construction for quality building services."
+        keywords="construction, renovation, solar, building, roofing, plumbing, electrical, South Africa"
+      />
       <div className="sticky top-0 z-50 flex items-center bg-charcoal p-4 justify-between border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="flex flex-col items-start justify-center pt-1">

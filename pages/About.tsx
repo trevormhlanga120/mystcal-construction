@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import MobileMenu from '../components/MobileMenu';
+import SEO from '../components/SEO';
 
 const About: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +30,11 @@ const About: React.FC = () => {
 
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-gray-100 min-h-screen flex flex-col">
+      <SEO 
+        title="About Us" 
+        description="Learn about Mystical Construction & Renovations. We are a leading construction company in South Africa, dedicated to building excellence since 2010."
+        keywords="about mystical construction, construction company south africa, renovation experts, building excellence"
+      />
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <header className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-background-dark/90 backdrop-blur-md p-4 border-b border-gray-200 dark:border-gray-800 justify-between">
         <div className="flex items-center gap-2">

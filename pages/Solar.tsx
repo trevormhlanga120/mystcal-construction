@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Solar: React.FC = () => {
   const navigate = useNavigate();
@@ -45,6 +46,11 @@ const Solar: React.FC = () => {
 
   return (
     <div className="bg-[#f6f8f6] dark:bg-[#102213] text-[#111812] dark:text-white min-h-screen pb-24 font-space">
+      <SEO 
+        title="Solar Installation" 
+        description="Switch to sustainable energy with Mystical Construction. We offer premium solar installation, hybrid inverters, and battery storage solutions."
+        keywords="solar installation, solar power, hybrid inverters, battery storage, renewable energy, south africa solar"
+      />
       <div className="sticky top-0 z-50 bg-white/80 dark:bg-[#102213]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div className="flex items-center p-4 justify-between max-w-xl mx-auto">
           <div className="flex items-center gap-2">

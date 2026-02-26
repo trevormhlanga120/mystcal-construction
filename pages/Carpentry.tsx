@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Carpentry: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <div className="bg-[#f8f7f6] dark:bg-[#121212] font-manrope text-gray-900 dark:text-white min-h-screen">
+      <SEO 
+        title="Carpentry Services" 
+        description="Master carpentry and custom woodwork. Cabinetry, wooden decking, and bespoke furniture solutions."
+        keywords="carpentry services, carpenter, custom woodwork, cabinetry, wooden decking, bespoke furniture, wood renovations"
+      />
       {/* Top Navigation */}
       <div className="sticky top-0 z-50 flex items-center bg-[#f8f7f6]/95 dark:bg-[#121212]/95 backdrop-blur-md p-4 border-b border-gray-200 dark:border-white/10 justify-between">
         <div className="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center cursor-pointer" onClick={() => navigate(-1)}>

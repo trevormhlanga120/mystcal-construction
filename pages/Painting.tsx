@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Painting: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Painting: React.FC = () => {
 
   return (
     <div className="bg-[#f8f7f5] dark:bg-[#221c10] font-display text-[#181611] dark:text-white antialiased min-h-screen">
+      <SEO 
+        title="Painting Services" 
+        description="Professional interior and exterior painting services. High-quality finishes for residential and commercial properties."
+        keywords="painting services, house painters, exterior painting, interior painting, commercial painting, residential painting"
+      />
       <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#221c10]/90 backdrop-blur-md p-4 justify-between border-b border-gray-100 dark:border-white/10">
         <div className="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 cursor-pointer" onClick={() => navigate(-1)}>
           <span className="material-symbols-outlined">arrow_back_ios</span>

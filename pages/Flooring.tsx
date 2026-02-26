@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Flooring: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Flooring: React.FC = () => {
 
   return (
     <div className="bg-[#f6f7f8] dark:bg-[#101922] text-[#111418] dark:text-white font-manrope">
+      <SEO 
+        title="Flooring & Tiling" 
+        description="Expert flooring and tiling services. Ceramic, porcelain, and wood flooring installations with precision alignment."
+        keywords="flooring services, tiling, ceramic tiles, porcelain tiles, wood flooring, floor installation, tiler"
+      />
       <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
         <div className="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#101922]/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
           <div className="text-[#137fec] flex size-12 shrink-0 items-center justify-start cursor-pointer" onClick={() => navigate(-1)}>
